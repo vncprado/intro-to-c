@@ -12,11 +12,13 @@ typedef struct pointnode {
   int x;
   int y;
 } PointNode;
+    
+PointNode *headpoint = NULL;
 
 PointNode *palloc(void);
+int print_list();
 
 int main () {
-    PointNode *headpoint = NULL;
     PointNode *i;
 
     i = palloc();
@@ -32,6 +34,8 @@ int main () {
     // the nextpoint of the previous it's me
     headpoint->nextpoint = i; 
 
+    printf("My list length: %d\n", print_list());
+
     i = palloc();
     i->x = 100;
     i->y = 200;
@@ -46,19 +50,41 @@ int main () {
     // the nextpoint of the previous it's me
     headpoint->nextpoint->nextpoint->nextpoint = i;
 
-    PointNode *iter = headpoint;
+    i = palloc();
+    i->x = 1000;
+    i->y = 2000;
+    i->nextpoint = NULL;
+    // the nextpoint of the previous it's me
+    headpoint->nextpoint->nextpoint->nextpoint->nextpoint = i;
+    
+    i = palloc();
+    i->x = 1000;
+    i->y = 2000;
+    i->nextpoint = NULL;
+    // the nextpoint of the previous it's me
+    headpoint->nextpoint->nextpoint->nextpoint->nextpoint->nextpoint = i;
 
-    while (TRUE) {
-        printf("%d, %d", iter->x, iter->y);
-        iter = iter->nextpoint;
-        if (iter == NULL) {
-            printf("\n");
-            break;
-        }
-        printf(" -> ");
-    }
+    printf("My list length: %d\n", print_list());
+    
+    // Can you develop a function to insert a new item?
+    // Can you develop a function to find and remove a x, y point?
 }
 
 PointNode *palloc(void) {
     return (PointNode *) malloc(sizeof(PointNode));
+}
+
+// print x, y from the points and return the list length
+int print_list(){
+    PointNode *current = headpoint;
+    int count=0;
+    while (current != NULL) {
+        count += 1;
+        printf("%d, %d", current->x, current->y);
+        current = current->nextpoint;
+
+        printf(" -> ");
+    }
+    printf("\b\b\b\b\b     \n"); // Remove the last arrow
+    return count;
 }

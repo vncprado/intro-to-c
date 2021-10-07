@@ -16,7 +16,7 @@ typedef struct pointnode {
 PointNode *palloc(void);
 
 int main () {
-    PointNode *headpoint = 0x0;
+    PointNode *headpoint = NULL;
     PointNode *i;
 
     i = palloc();

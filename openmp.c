@@ -1,5 +1,5 @@
 /*
-This is a simple exmplae of opemmp
+This is a simple exmple of opemmp
 compile:
     gcc openmp.c -fopenmp
 

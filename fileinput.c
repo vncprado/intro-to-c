@@ -1,8 +1,11 @@
+/*
+  Small example of file input
+*/
 #include <stdio.h>
 
 int main() {
   char mystring[10];
-  FILE* fd = fopen("points.csv", "rw");
+  FILE* fd = fopen("points.csv", "rw"); // file name, current folder
 
   while (fscanf(fd, "%[^\n]\n", mystring) != EOF) {
     printf("line: %s\n", mystring);

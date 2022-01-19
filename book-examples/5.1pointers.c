@@ -10,9 +10,9 @@ int main () {
 
     ip = &x; // ip is now equal to the adress of x i.e. ip now points to x
     printf("ip is now equal to the adress of x i.e. ip now points to x\n");
-    printf("x: %d\n*ip: %d\nip: %p\n\n", x, *ip, ip);
+    printf("x: %d\ny: %d\n*ip: %d\nip: %p\n\n", x, y, *ip, ip);
     
-    y = ip; // copy the content of whatever ip points to y
+    y = *ip; // copy the content of whatever ip points to y
     printf("copy the content of whatever ip pointi to y\n");
     printf("x: %d\n*ip: %d\ny: %d\n\n", x, *ip, y);
     
@@ -22,6 +22,6 @@ int main () {
     printf("x: %d\n*ip: %d\ny: %d\n\n", x, *ip, y);
     
     *ip = *ip + 10; // *ip affects x
-    printf("*ip affects x\n");
+    printf("*ip affects x and do not affect y\n");
     printf("x: %d\n*ip: %d\ny: %d\n", x, *ip, y);
 }

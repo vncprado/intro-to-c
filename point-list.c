@@ -7,81 +7,84 @@
 
 #define TRUE 1
 
-typedef struct pointnode {
-  struct pointnode *nextpoint;
+typedef struct coordnode {
+  struct coordnode* nextcoord;
   int x;
   int y;
-} PointNode;
+} CoordNode;
     
-PointNode *headpoint = NULL;
+CoordNode* headcoord = NULL;
 
-PointNode *palloc(void);
+CoordNode* palloc(void);
+
 int print_list();
 
 int main () {
-    PointNode *i;
+    CoordNode* i;
 
     i = palloc();
     i->x = 1;
     i->y = 2;
-    i->nextpoint = NULL;
-    headpoint = i;
-
+    i->nextcoord = NULL;
+    headcoord = i;
+    printf("My list length: %d\n", print_list());
+    /*
     i = palloc();
     i->x = 10;
     i->y = 20;
-    i->nextpoint = NULL;
-    // the nextpoint of the previous it's me
-    headpoint->nextpoint = i; 
+    i->nextcoord = NULL;
+    // the nextcoord of the previous it's me
+    headcoord->nextcoord = i; 
 
     printf("My list length: %d\n", print_list());
 
     i = palloc();
     i->x = 100;
     i->y = 200;
-    i->nextpoint = NULL;
-    // the nextpoint of the previous it's me
-    headpoint->nextpoint->nextpoint = i; 
+    i->nextcoord = NULL;
+    // the nextcoord of the previous it's me
+    headcoord->nextcoord->nextcoord = i; 
 
     i = palloc();
     i->x = 1000;
     i->y = 2000;
-    i->nextpoint = NULL;
-    // the nextpoint of the previous it's me
-    headpoint->nextpoint->nextpoint->nextpoint = i;
+    i->nextcoord = NULL;
+    // the nextcoord of the previous it's me
+    headcoord->nextcoord->nextcoord->nextcoord = i;
 
     i = palloc();
     i->x = 1000;
     i->y = 2000;
-    i->nextpoint = NULL;
-    // the nextpoint of the previous it's me
-    headpoint->nextpoint->nextpoint->nextpoint->nextpoint = i;
+    i->nextcoord = NULL;
+    // the nextcoord of the previous it's me
+    headcoord->nextcoord->nextcoord->nextcoord->nextcoord = i;
     
     i = palloc();
     i->x = 1000;
     i->y = 2000;
-    i->nextpoint = NULL;
-    // the nextpoint of the previous it's me
-    headpoint->nextpoint->nextpoint->nextpoint->nextpoint->nextpoint = i;
+    i->nextcoord = NULL;
+    // the nextcoord of the previous it's me
+    headcoord->nextcoord->nextcoord->nextcoord->nextcoord->nextcoord = i;
 
     printf("My list length: %d\n", print_list());
     
     // Can you develop a function to insert a new item?
-    // Can you develop a function to find and remove a x, y point?
+    // Can you develop a function to find and remove a x, y coord?
+    */
 }
 
-PointNode *palloc(void) {
-    return (PointNode *) malloc(sizeof(PointNode));
+CoordNode* palloc(void) {
+    return (CoordNode *) malloc(sizeof(CoordNode));
 }
 
-// print x, y from the points and return the list length
+// print x, y from the coords and return the list length
 int print_list(){
-    PointNode *current = headpoint;
+    CoordNode* current = headcoord;
     int count=0;
     while (current != NULL) {
         count += 1;
         printf("%d, %d", current->x, current->y);
-        current = current->nextpoint;
+        current = current->nextcoord;
 
         printf(" -> ");
     }

@@ -1,29 +1,25 @@
-/*
-    Program that creates NUM_OF_THREADS join them and quit
-    gcc forkjoin.c -lpthread
-*/
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h> // POSIX operating system API
+#include <stdio.h>
 
-#include<stdio.h>
-#include<pthread.h>
-
-#define NUM_OF_THREADS 10
-
-void *mythread(void *thread_param);
-
-int main() {
-    printf("Before Thread\n");
-    
-    pthread_t thread_id[NUM_OF_THREADS];
-    
-    // pthread_create(thread_id, thread parameter, function name, function parameters) 
-    for (int i=0; i<NUM_OF_THREADS; i++)
-        pthread_create(&thread_id[i], NULL, mythread, NULL);
-    
-    for (int i=0; i<NUM_OF_THREADS; i++)
-        pthread_join(thread_id[i], NULL);
-    printf("After Thread\n");
-}
-
-void *mythread(void *thread_param) {
-    printf("Inside the thread\n");
+int main()
+{
+    pid_t pid;
+    /* fork a child process */
+    pid = fork();
+    if (pid < 0) { /* error occurred */
+        fprintf(stderr, "Fork Failed\n");
+        return 1;
+    }
+    else if (pid == 0) { /* child process */
+        execlp("/bin/ls", "ls", NULL);
+    }
+    else { /* parent process */
+        /* parent will wait for the child to complete */
+        // return pid, param: status pointer, here = null
+        pid = wait(NULL);
+        printf("Child Complete\n");
+    }
+    return 0;
 }

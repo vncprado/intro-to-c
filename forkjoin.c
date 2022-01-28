@@ -13,7 +13,7 @@ int main()
         return 1;
     }
     else if (pid == 0) { /* child process */
-        execlp("/bin/ls", "ls", NULL);
+        execlp("/bin/ls", "ls", NULL); // executes list directory
     }
     else { /* parent process */
         /* parent will wait for the child to complete */

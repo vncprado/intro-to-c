@@ -4,34 +4,38 @@
 #include <string.h>
 #include <unistd.h>
 
-void* create_shared_memory(size_t size);
- 
-int main() {
+void *create_shared_memory(size_t size);
+
+int main()
+{
   char parent_message[] = "hello";  // parent process will write this message
   char child_message[] = "goodbye"; // child process will then write this one
 
-  void* shmem = create_shared_memory(128);
+  void *shmem = create_shared_memory(128);
 
   memcpy(shmem, parent_message, sizeof(parent_message));
-  printf("Parent wrote: %s\n", (char *) shmem);
+  printf("Parent wrote: %s\n", (char *)shmem);
 
   int pid = fork();
 
-  if (pid == 0) {
-    printf("Child read: %s\n", (char *) shmem);
+  if (pid == 0)
+  {
+    printf("Child read: %s\n", (char *)shmem);
     memcpy(shmem, child_message, sizeof(child_message));
-    printf("Child wrote: %s\n", (char *) shmem);
-
-  } else {
-    printf("Parent read: %s\n", (char *) shmem);
+    printf("Child wrote: %s\n", (char *)shmem);
+  }
+  else
+  {
+    printf("Parent read: %s\n", (char *)shmem);
     sleep(1);
-    printf("After 1s, parent read: %s\n", (char *) shmem);
+    printf("After 1s, parent read: %s\n", (char *)shmem);
   }
 
   return 0;
 }
 
-void* create_shared_memory(size_t size) {
+void *create_shared_memory(size_t size)
+{
   // Our memory buffer will be readable and writable:
   int protection = PROT_READ | PROT_WRITE;
 

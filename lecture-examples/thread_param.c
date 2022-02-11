@@ -1,6 +1,6 @@
 /*
     Program that creates NUM_OF_THREADS join them and quit
-    gcc forkjoin.c -lpthread
+    gcc thread_param.c -pthread
 */
 
 #include<stdio.h>
@@ -8,7 +8,7 @@
 
 #define NUM_OF_THREADS 100
 
-int mythread(void *thread_param);
+void * mythread(void *thread_param);
 
 int main() {
     printf("Before Thread\n");

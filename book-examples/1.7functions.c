@@ -15,12 +15,12 @@ int main() {
 }
 
 int power(int base, int n) {
-    int i, p;
+    int i, pow;
     
-    p = 1;
+    pow = 1;
     for (i = 1; i<= n; ++i) {
-        p = p * base;
+        pow = pow * base;
     }
     
-    return p;
+    return pow;
 }

@@ -13,7 +13,8 @@ int main() {
     for (i = 0; i<10; ++i)
         ndigit[i] = 0; // ndigit = [0,0,0,0,0,0,0,0,0,0] 
 
-    while ((c = getchar()) != EOF)
+
+   while ((c = getchar()) != EOF) // Command line ctrl+D sends EOF
         if (c >= '0' && c <= '9')
             ++ndigit[c-'0']; // if c = '5' => 53 - 48 = 5
             // ndigit[n] = ndigit[n] + 1;

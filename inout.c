@@ -1,3 +1,8 @@
+/*
+    Example on input, output, EOF and stdin/stdout
+    Try ./a.out < some_file
+*/
+
 #include <stdio.h>
 
 int main () {

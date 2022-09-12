@@ -8,7 +8,7 @@ int main() {
     int a; // variable to store the input
     int b; // variable to store the input
 
-    printf("Insert a string\n");
+    printf("Insert two numbers a,b\n");
     scanf("%d,%d", &a, &b); // scanf reading two values
     
     printf("you entered: %d and %d\n", a, b);

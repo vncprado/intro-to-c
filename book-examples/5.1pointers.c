@@ -13,7 +13,7 @@ int main () {
     printf("x: %d\ny: %d\n*ip: %d\nip: %p\n\n", x, y, *ip, ip);
     
     y = *ip; // copy the content of whatever ip points to y
-    printf("copy the content of whatever ip pointi to y\n");
+    printf("copy the content of whatever ip points to y\n");
     printf("x: %d\n*ip: %d\ny: %d\n\n", x, *ip, y);
     
     

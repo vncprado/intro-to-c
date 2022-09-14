@@ -1,72 +1,72 @@
 /* 
-    Program to explain structures
+    Examples on C struct
 */
 
 #include <stdio.h>
 
-struct point {
+struct coord {
     int x;
     int y;
 };
 
 struct rect {
-    struct point pt1;
-    struct point pt2;
+    struct coord pt1;
+    struct coord coord2;
 };
 
 typedef struct {
     int x;
     int y;
-} mypoint;
+} mycoord;
 
-int print_pt(struct point pt);
-int print_mypoint(mypoint pt);
-int add_pt(struct point *pt);
+int print_coord(struct coord coord1);
+int print_mypoint(mycoord coord1);
+int coord_inc(struct coord *coord1);
 
 int main(){
-    struct point pt;
-    struct point *ptp;
+    struct coord coord1;
+    struct coord *p_coord1;
     
-    pt.x = 10;
-    pt.y = 20;
+    coord1.x = 10;
+    coord1.y = 20;
 
-    print_pt(pt);
+    print_coord(coord1);
 
-    ptp = &pt;
-    printf("Pointer points to point (%d, %d)\n", (*ptp).x, (*ptp).y);
-    printf("Pointer points to point (%d, %d)\n", ptp->x, ptp->y);
+    p_coord1 = &coord1; // pointer to my coord
+    printf("Pointer to coord1 (%d, %d)\n", (*p_coord1).x, (*p_coord1).y); // (*p_coord1) is the object so you can access using dot "." same with coord1 
+    printf("Pointer to coord1 (%d, %d)\n", p_coord1->x, p_coord1->y);
     
     // Change the original point
-    add_pt(ptp);
-    print_pt(pt);
+    coord_inc(p_coord1);
+    print_coord(coord1);
 
-    mypoint pt2; // typedef
+    mycoord coord2; // typedef
         
-    pt2.x = 30;
-    pt2.y = 40;
+    coord2.x = 30;
+    coord2.y = 40;
 
-    print_mypoint(pt2); // different function parameter
+    print_mypoint(coord2); // different function parameter
 
     struct rect rec1;
 
     rec1.pt1.x = 0;
     rec1.pt1.y = 0;
-    rec1.pt2.x = 1;
-    rec1.pt2.y = 1;
+    rec1.coord2.x = 1;
+    rec1.coord2.y = 1;
 
-    printf("My rec (%d, %d, %d, %d)\n", rec1.pt1.x, rec1.pt1.y, rec1.pt2.x, rec1.pt2.y);
+    printf("My rec (%d, %d, %d, %d)\n", rec1.pt1.x, rec1.pt1.y, rec1.coord2.x, rec1.coord2.y);
     
 }
 
-int print_pt(struct point pt) {
-    printf("%d, %d\n", pt.x, pt.y);
+int print_coord(struct coord coord1) {
+    printf("%d, %d\n", coord1.x, coord1.y);
 }
 
-int add_pt(struct point *pt) {
-    pt->x += 1;
-    pt->y += 1;
+int coord_inc(struct coord *coord1) {
+    coord1->x += 1;
+    coord1->y += 1;
 }
 
-int print_mypoint(mypoint pt) {
-    printf("%d, %d\n", pt.x, pt.y);
+int print_mypoint(mycoord coord1) {
+    printf("%d, %d\n", coord1.x, coord1.y);
 }

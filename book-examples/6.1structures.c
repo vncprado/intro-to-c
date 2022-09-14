@@ -10,7 +10,7 @@ struct coord {
 };
 
 struct rect {
-    struct coord pt1;
+    struct coord coord1;
     struct coord coord2;
 };
 
@@ -49,24 +49,25 @@ int main(){
 
     struct rect rec1;
 
-    rec1.pt1.x = 0;
-    rec1.pt1.y = 0;
-    rec1.coord2.x = 1;
-    rec1.coord2.y = 1;
+    rec1.coord1.x = 10;
+    rec1.coord1.y = 5;
+    rec1.coord2.x = 11;
+    rec1.coord2.y = 15;
 
-    printf("My rec (%d, %d, %d, %d)\n", rec1.pt1.x, rec1.pt1.y, rec1.coord2.x, rec1.coord2.y);
+    printf("My rec (%d, %d, %d, %d)\n", rec1.coord1.x, rec1.coord1.y, rec1.coord2.x, rec1.coord2.y);
     
 }
 
 int print_coord(struct coord coord1) {
-    printf("%d, %d\n", coord1.x, coord1.y);
+    printf("Coord: %d, %d\n", coord1.x, coord1.y);
 }
 
 int coord_inc(struct coord *coord1) {
+     printf("Coord + 1\n");
     coord1->x += 1;
     coord1->y += 1;
 }
 
 int print_mypoint(mycoord coord1) {
-    printf("%d, %d\n", coord1.x, coord1.y);
+    printf("Coord: %d, %d\n", coord1.x, coord1.y);
 }

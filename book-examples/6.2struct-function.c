@@ -9,21 +9,21 @@ struct coord {
     int y;
 };
 
-int print_coord(struct coord pt);
-struct coord init_pt(int x, int y);
+int print_coord(struct coord coord1);
+struct coord init_coord(int x, int y);
 
 int main(){
-    struct coord pt;
+    struct coord coord1;
 
-    pt.x = 10;
-    pt.y = 20;
-    print_coord(pt);
-    pt = init_pt(1, 2); // return a new  point with x = 1, y = 2
-    print_coord(pt);
+    coord1.x = 10;
+    coord1.y = 20;
+    print_coord(coord1);
+    coord1 = init_coord(1, 2); // return a new  coord with x = 1, y = 2
+    print_coord(coord1);
 
 }
 
-struct coord init_pt(int x, int y) {
+struct coord init_coord(int x, int y) {
     struct coord temp_pt;
     temp_pt.x = x;
     temp_pt.y = y;
@@ -31,6 +31,6 @@ struct coord init_pt(int x, int y) {
     return temp_pt;
 }
 
-int print_coord(struct coord pt) {
-    printf("%d, %d\n", pt.x, pt.y);
+int print_coord(struct coord coord1) {
+    printf("%d, %d\n", coord1.x, coord1.y);
 }

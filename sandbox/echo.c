@@ -10,9 +10,7 @@ int main(int argc, char *argv[]) {
   
     printf("argc: %d\n", argc); // prints the name of the program
 
-
-//
-    printf("%s\n", argv[2]); // prints the name of the program
-    //printf("%s\n", argv[1]); // prints the first input
-    //printf("%s\n", argv[2]); // prints the second input
+    printf("%s\n", argv[0]); // prints the name of the program
+    printf("%s\n", argv[1]); // prints the first input
+    printf("%s\n", argv[2]); // prints the second input
 } 

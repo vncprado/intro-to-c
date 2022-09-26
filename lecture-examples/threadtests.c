@@ -1,6 +1,5 @@
 /*
     Program that creates NUM_OF_THREADS join them and quit
-    gcc forkjoin.c -lpthread
 */
 
 #include<stdio.h>

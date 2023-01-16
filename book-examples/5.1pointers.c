@@ -8,8 +8,8 @@ int main () {
     int x = 1, y = 2;
     int *ip; // It reads "pointer to an integer"; the expression "*ip" is an int
 
-    ip = &x; // ip is now equal to the adress of x i.e. ip now points to x
-    printf("ip is now equal to the adress of x i.e. ip now points to x\n");
+    ip = &x; // ip is now equal to the address of x i.e. ip now points to x
+    printf("ip is now equal to the address of x i.e. ip now points to x\n");
     printf("x: %d\ny: %d\n*ip: %d\nip: %p\n\n", x, y, *ip, ip);
     
     y = *ip; // copy the content of whatever ip points to y

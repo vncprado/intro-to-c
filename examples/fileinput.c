@@ -16,6 +16,11 @@ int main() {
     printf("string: %s\n", mystring);
   }
   rewind(fd);
+  int a, b;
+  while (fscanf(fd, "%d, %d", &a, &b) != EOF) { // formatted input
+    printf("integers: %d and %d\n", a, b);
+  }
+  rewind(fd);
   while (fgets (mystring, 10, fd)!=NULL) { 
     printf("fgest line: %s", mystring); // includes \n character
   }

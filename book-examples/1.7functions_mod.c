@@ -4,7 +4,7 @@
 
 #include <stdio.h>
 
-int power(int base, int n);
+int power(int base, int expo);
 
 int main() {
     
@@ -16,11 +16,11 @@ int main() {
     return 0;
 }
 
-int power(int base, int n) {
+int power(int base, int expo) {
     int i, pow;
     
     pow = 1;
-    for (i = 1; i<= n; ++i) {
+    for (i = 1; i<= expo; ++i) {
         pow = pow * base;
     }
     

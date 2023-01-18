@@ -17,10 +17,10 @@ struct rect {
 typedef struct {
     int x;
     int y;
-} mycoord;
+} Mycoord;
 
 int print_coord(struct coord coord1);
-int print_mypoint(mycoord coord1);
+int print_mypoint(Mycoord coord1);
 int coord_inc(struct coord *coord1);
 
 int main(){
@@ -33,14 +33,15 @@ int main(){
     print_coord(coord1);
 
     p_coord1 = &coord1; // pointer to my coord
+    printf("coord1 (%d, %d)\n", coord1.x, coord1.y);
     printf("Pointer to coord1 (%d, %d)\n", (*p_coord1).x, (*p_coord1).y); // (*p_coord1) is the object so you can access using dot "." same with coord1 
     printf("Pointer to coord1 (%d, %d)\n", p_coord1->x, p_coord1->y);
     
     // Change the original point
-    coord_inc(p_coord1);
+    coord_inc(p_coord1); // increment the coordinate
     print_coord(coord1);
 
-    mycoord coord2; // typedef
+    Mycoord coord2; // typedef
         
     coord2.x = 30;
     coord2.y = 40;
@@ -68,6 +69,6 @@ int coord_inc(struct coord *coord1) {
     coord1->y += 1;
 }
 
-int print_mypoint(mycoord coord1) {
+int print_mypoint(Mycoord coord1) {
     printf("Coord: %d, %d\n", coord1.x, coord1.y);
 }

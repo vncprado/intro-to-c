@@ -13,7 +13,7 @@ int main(){
     printf("Before swap\nx: %d, y:%d\n\n", x, y);
     swap(x, y);
     printf("After swap\nx: %d, y:%d\n\n", x, y);
-    //pswap(&x, &y);
+    pswap(&x, &y);
     printf("Before pointer swap\nx: %d, y:%d\n\n", x, y);
     pswap(px, py);
     printf("After pointer swap\nx: %d, y:%d\n\n", x, y);
